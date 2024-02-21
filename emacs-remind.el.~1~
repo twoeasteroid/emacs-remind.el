@@ -27,13 +27,6 @@
 
 
 (provide 'emacs-remind)
-(require 'alert-toast)
 
-(defun emacs-remind (reminder parent)
-  (with-output-to-temp-buffer "Reminder"
-    (princ (format "%s\n" reminder))
-    (princ (format-time-string "Sent at: %H:%M\n"))
-    (princ (format "Sent by %s\n" parent)))
-  (alert-toast-notify `(:title ,parent :message ,reminder :data (:alarm default :long t))))
 
 ;;; emacs-remind.el ends here
